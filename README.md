@@ -1,99 +1,118 @@
-# Docker GitHub Actions Demo
+# 🐳 Docker GitHub Actions Demo
 
-This repository demonstrates the implementation of Docker with GitHub Actions for automated containerization and deployment of a machine learning project.
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/austinLorenzMccoy/docker_git_action/cicd.yml?style=flat-square)
+![Docker Pulls](https://img.shields.io/docker/pulls/austindoc/docker_git_action?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 
-## Overview
+A Flask-based web application demonstrating automated Docker containerization and deployment using GitHub Actions.
 
-This project showcases how to:
-- Build Docker images automatically using GitHub Actions
-- Implement continuous integration/continuous deployment (CI/CD) for containerized applications
-- Manage Docker builds in an automated workflow
+## 🚀 Features
 
-## Prerequisites
+- Automated Docker image builds via GitHub Actions
+- Continuous Integration/Deployment (CI/CD) pipeline
+- Flask web application with testing
+- Automated Docker Hub publishing
 
-- Docker installed on your local machine
-- GitHub account
-- Basic understanding of Docker and GitHub Actions
+## 🛠️ Tech Stack
 
-## Project Structure
+- Python 3.9
+- Flask
+- Docker
+- GitHub Actions
+- pytest
 
+## 🏗️ Project Structure
+
+```
 dockeraction/
-├── Dockerfile
+├── Dockerfile              # Container configuration
+├── app.py                 # Flask application
+├── requirements.txt       # Python dependencies
+├── test_app.py           # Test suite
+├── .gitignore            # Git ignore rules
 ├── .github/
-│ └── workflows/
-│ └── docker.yml
-└── README.md
+│   └── workflows/
+│       └── cicd.yml      # CI/CD workflow
+└── README.md             # Documentation
+```
 
-## Setup Instructions
+## 🚦 Prerequisites
 
-1. Clone the repository:
+- Docker Desktop
+- Git
+- GitHub account
+- Docker Hub account
+
+## 🏃‍♂️ Quick Start
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/austinLorenzMccoy/docker_git_action.git
+   cd docker_git_action
+   ```
+
+2. **Local Development**
+   ```bash
+   # Install dependencies
+   pip install -r requirements.txt
+   
+   # Run tests
+   pytest
+   
+   # Start Flask server
+   python app.py
+   ```
+
+3. **Docker Operations**
+   ```bash
+   # Build image
+   docker build -t austindoc/docker_git_action .
+   
+   # Run container
+   docker run -p 5001:5001 austindoc/docker_git_action
+   ```
+
+## 🔄 CI/CD Pipeline
+
+The GitHub Actions workflow automatically:
+- Builds the Docker image
+- Runs tests
+- Publishes to Docker Hub (austindoc repository)
+
+### Workflow Triggers
+- Push to main branch
+- Pull requests to main branch
+
+## 📦 Docker Hub
+
+Find the latest image at [hub.docker.com/r/austindoc/docker_git_action](https://hub.docker.com/r/austindoc/docker_git_action)
+
+Pull the image:
 ```bash
-git clone <repository-url>
-cd dockeraction
-
-2. Local Docker Build:
-docker build -t your-image-name .
-
-3. Run the container locally:
-docker run -it your-image-name
-
-GitHub Actions Workflow
-The workflow is configured to:
-
-```
-Trigger on push events to main branch
-
-Build the Docker image
-
-Run tests (if configured)
-
-Push to container registry (if configured)
+docker pull austindoc/docker_git_action:latest
 ```
 
-To use this workflow:
+## 🔧 Configuration
 
-```
-Configure repository secrets if needed
+### Environment Variables
+Configure these in your GitHub repository secrets:
+- `DOCKER_USERNAME`: Your Docker Hub username
+- `DOCKER_PASSWORD`: Your Docker Hub access token
 
-Push changes to trigger the workflow
+## 🤝 Contributing
 
-Monitor the Actions tab in your GitHub repository
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
+## 📝 License
 
-### Configuration
-#### Dockerfile
-The Dockerfile contains the instructions to build your container image. Ensure it's properly configured for your application needs.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-GitHub Actions Configuration
-The workflow configuration is located in .github/workflows/docker.yml
+## 📧 Contact
 
-Contributing
-Fork the repository
+Austin McCoy - chibuezeaugustine23@gmail.com
 
-Create your feature branch ( git checkout -b feature/amazing-feature)
-
-Commit your changes ( git commit -m 'Add some amazing feature')
-
-Push to the branch ( git push origin feature/amazing-feature)
-
-Open a Pull Request
-
-Troubleshooting
-Common issues and solutions:
-
-Check Docker daemon is running for local builds
-
-Verify GitHub Actions permissions
-
-Ensure all required secrets are configured
-
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-This README provides a solid foundation for documenting your Docker GitHub Actions setup. You can customize it further based on your specific implementation details, such as:
-- Adding specific environment variables required
-- Including more detailed workflow configurations
-- Adding specific testing procedures
-- Documenting any special deployment requirements
-
-Remember to update the sections according to your actual implementation and add any project-specific instructions or requirements.
+Project Link: [github.com/austinLorenzMccoy/docker_git_action](https://github.com/austinLorenzMccoy/docker_git_action)
